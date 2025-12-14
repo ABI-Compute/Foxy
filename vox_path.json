@@ -1,3 +1,11 @@
-[
-  "C:\\Users\\Calam\\Documents\\Vox\\std\\std"
-]
+{
+  "WIN32": [
+    "C:\\Users\\Calam\\Documents\\Vox\\std\\std"
+  ],
+  "LINUX": [
+    "/mnt/c/Users/Calam/Documents/Vox/std/std"
+  ],
+  "MAC": [
+
+  ]
+}
