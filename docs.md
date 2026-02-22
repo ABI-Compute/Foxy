@@ -1,15 +1,15 @@
-# Vox Language Documentation
+# Foxy Language Documentation
 
 Vox is a statically compiled systems programming language targeting LLVM IR. It is designed for low-level development with support for direct memory manipulation, C-style structs, and seamless interoperability with C libraries.
 
 ## Compiler Usage
 
-The Vox compiler is invoked via the `Voxy.py` script. It translates `.vpy` source files into LLVM IR, compiles them to object files using `llc`, and links them into executables or libraries.
+The Foxy compiler is invoked via the `Foxy.py` script. It translates `.vpy` source files into LLVM IR, compiles them to object files using `llc`, and links them into executables or libraries.
 
 ### Command Line Interface
 
 ```bash
-python Voxy.py [options] <source_file.vpy>
+python Foxy.py [options] <source_file.vpy>
 ```
 
 ### Options
@@ -37,7 +37,7 @@ python Voxy.py [options] <source_file.vpy>
 
 ### Data Types
 
-Vox supports standard primitive types and composite types.
+Foxy supports standard primitive types and composite types.
 
 | Type | Description | LLVM Equivalent |
 | :--- | :--- | :--- |
@@ -58,7 +58,7 @@ Vox supports standard primitive types and composite types.
 
 #### Type Aliasing
 Use `using` to create type aliases.
-```vox
+```Foxy
 using Handle = int64
 ```
 
@@ -66,14 +66,14 @@ using Handle = int64
 
 #### Constants
 Constants are evaluated at compile-time or initialized as globals.
-```vox
+```Foxy
 const PI: float = 3.14
 const MSG: ptr[char] = addr "Hello World"
 ```
 
 #### Variables
 Global variables are defined with `var`.
-```vox
+```Foxy
 var counter: int = 0
 var buffer: buff[char; 256] = "Initial string"
 ```
@@ -82,7 +82,7 @@ var buffer: buff[char; 256] = "Initial string"
 
 Structs define memory layout for composite data. Fields are separated by commas.
 
-```vox
+```Foxy
 struct Point:
     x: int,
     y: int
@@ -90,7 +90,7 @@ endstruct
 ```
 
 **Initialization and Usage:**
-```vox
+```Foxy
 # Named initialization
 const p: Point = Point { x: 10, y: 20 }
 
@@ -102,7 +102,7 @@ var x_val: int = p.x
 
 Functions are defined with `fn` and end with `endfn`.
 
-```vox
+```Foxy
 fn int add(a: int, b: int):
     return a + b
 endfn
@@ -111,7 +111,7 @@ endfn
 ### Control Flow
 
 #### Conditionals
-```vox
+```Foxy
 if x == 10:
     # code
 elif x > 10:
@@ -122,8 +122,8 @@ endif
 ```
 
 #### Loops and Jumps
-Vox currently uses labels and goto for loops.
-```vox
+Foxy currently uses labels and goto for loops.
+```Foxy
 lb loop_start
     if i >= 10:
         goto loop_end
@@ -139,7 +139,7 @@ lb loop_end
 *   **Dereference/Write**: `*(Address): Type = Value`
 *   **Pointer Arithmetic**: `*(Base + Offset)`
 
-```vox
+```Foxy
 # Write 0 to address 0x1234
 *(0x1234): int = 0
 
@@ -150,25 +150,25 @@ var ptrVal: ptr[int] = ...
 
 ### Interoperability (FFI)
 
-Vox can link against C libraries and import functions.
+Foxy can link against C libraries and import functions.
 
 #### Linking Libraries
-```vox
+```Foxy
 lib dyn <kernel32>   # Link dynamic library
 lib static <mylib>   # Link static library
 ```
 
 #### Importing Functions
 External functions must be declared with `dyn_import`. Note the trailing dot.
-```vox
+```Foxy
 dyn_import fn int MessageBoxA(hwnd: int64, text: ptr[char], caption: ptr[char], type: uint).
 ```
 
 ### Preprocessor
 
-Vox supports conditional compilation based on the target environment (`WIN32`, `LINUX`, `X86_64`, etc.).
+Foxy supports conditional compilation based on the target environment (`WIN32`, `LINUX`, `X86_64`, etc.).
 
-```vox
+```Foxy
 %if WIN32
     import "windows_defs.vpy"
 %elif LINUX
@@ -178,9 +178,10 @@ Vox supports conditional compilation based on the target environment (`WIN32`, `
 
 ### Inline Assembly
 
-```vox
+```Foxy
 ASM:
     mov eax, 1
     ret
 asmend
 ```
+
