@@ -1,12 +1,12 @@
-# Voxy
+# Foxy
 An LLVM backed compiled language with simple, easy to learn syntax
 
 ## IN DEVELOPMENT!
 
 Everything you see in this repo was created solo by me in 2 weeks so do't expect too much
 
-Voxy so far has syntax like this:
-```Voxy
+Foxy so far has syntax like this:
+```Foxy
 const X: int = 56 // 7 * 5 % 68
 import <File_In_include.vpy>
 SomeFunction()
