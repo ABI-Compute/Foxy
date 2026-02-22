@@ -1,5 +1,5 @@
 # ============================================================ #
-# VOX STANDARD LIBRARY (Vstdl) c Calam 2025                    #
+# FOXY STANDARD LIBRARY (Fstdl) c Calam 2025                    #
 # This is the Vox standard library module for basic I/O        #
 # tasks like stdout, stdin, stderr, etc                        #
 # Currently under development                                  #
@@ -55,5 +55,6 @@ fn void cmd_exit(code: int):
     ExitProcess(code)
     return
 endfn
+
 
 # end of io.vpy
